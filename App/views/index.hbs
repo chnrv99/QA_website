@@ -1,0 +1,47 @@
+<h1>{{title}}</h1>
+{{#if isAuthenticated }}
+<p>Hi {{username}}!</p>
+<a href="/users/id">View ID token claims</a>
+<br>
+<a href="/auth/acquireToken">Acquire a token to call the Microsoft Graph API</a>
+<br>
+<br>
+<br>
+
+<p>Write Questions</p>
+<form action="/questions/createQ" method="post">
+    <input type="text" id="customerId" name="question" placeholder="question" />
+    <input type="text" id="customerId" name="answer" placeholder="answer" />
+    <input type="submit" value="Submit">
+</form>
+<br>
+<br>
+<p>Delete Question</p>
+<form action="/deletequestions/deleteQ" method="post">
+    <input type="text"  name="questionNo" placeholder="question number"/>
+    <input type="submit" value="Submit">
+</form>
+<br>
+<br>
+<p>Update Question</p>
+<form action="/updatequestions/updateQ" method="post">
+    <input type="text"  name="sno" placeholder="question number" />
+    <input type="text" name="answer" placeholder="answer">
+    <input type="submit" value="Submit">
+</form>
+<br>
+<br>
+<p>Read Question</p>
+<form action="/readquestions/readQ" method="post">
+    <input type="text"  name="lim1" placeholder="lower limit" />
+    <input type="text" name="lim2" placeholder="upper limit">
+    <input type="submit" value="Submit">
+</form>
+<br>
+<br>
+
+<a href="/auth/signout">Sign out</a>
+{{else}}
+<p>Welcome to {{title}}</p>
+<a href="/auth/signin">Sign in</a>
+{{/if}}
